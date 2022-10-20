@@ -10,7 +10,7 @@ public class Main {
         PreparedStatement statement = connection.prepareStatement(SQLQuerie.CREATE);
         statement.execute();
         PreparedStatement insert = connection.prepareStatement(SQLQuerie.INSERT);
-       insert.executeUpdate();
+ //      insert.executeUpdate();
 
         ArrayList<User> list = Server.list(statement, SQLQuerie.YOUNGER18);
         list.forEach(System.out::println);
@@ -22,6 +22,16 @@ public class Main {
 
         ArrayList<User> list3 = Server.list(statement, SQLQuerie.AGE_BETWEEN);
         list3.forEach(System.out::println);
+
+        System.out.println("---------------------");
+
+        Server.count(statement,SQLQuerie.NAMES_CONTAINS_A);
+
+
+        System.out.println("---------------------");
+
+        Server.count(statement,SQLQuerie.ALL_USER_ADULT);
+
 
     }
 

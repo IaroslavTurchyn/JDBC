@@ -31,4 +31,12 @@ public class SQLQuerie {
             SELECT * FROM user WHERE age BETWEEN 18 and 60
             """;
 
+    public static final String NAMES_CONTAINS_A= """
+            SELECT  count(*) FROM user WHERE first_name LIKE '%a%' or '%a' or 'a%';
+            """;
+
+    public static final String ALL_USER_ADULT= """
+            SELECT count(*) FROM user WHERE age>18;
+            """;
+
 }

@@ -22,6 +22,15 @@ public class Server {
             }
 
             return users;
+
+        }
+
+        public static void count (PreparedStatement preparedStatement,String sqlQuerie) throws SQLException {
+            ResultSet resultSet = preparedStatement.executeQuery(sqlQuerie);
+            while (resultSet.next()){
+                int count =resultSet.getInt("count(*)");
+                System.out.println(count);
+            }
         }
 
 
