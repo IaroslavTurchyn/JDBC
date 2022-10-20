@@ -10,18 +10,17 @@ public class Main {
         PreparedStatement statement = connection.prepareStatement(SQLQuerie.CREATE);
         statement.execute();
         PreparedStatement insert = connection.prepareStatement(SQLQuerie.INSERT);
-      insert.executeUpdate();
+  //      insert.executeUpdate();
 
-        ArrayList<User> list = Server.list(statement, SQLQuerie.YOUNGER18);
-        list.forEach(System.out::println);
+        Server.list(statement, SQLQuerie.YOUNGER18);
         System.out.println("---------------------");
 
-        ArrayList<User> list1 = Server.list(statement, SQLQuerie.NAME_ENDS_O);
-        list1.forEach(System.out::println);
+        Server.list(statement, SQLQuerie.NAME_ENDS_O);
+
         System.out.println("---------------------");
 
-        ArrayList<User> list3 = Server.list(statement, SQLQuerie.AGE_BETWEEN);
-        list3.forEach(System.out::println);
+        Server.list(statement, SQLQuerie.AGE_BETWEEN);
+
 
         System.out.println("---------------------");
 

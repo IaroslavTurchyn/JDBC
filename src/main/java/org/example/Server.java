@@ -8,8 +8,8 @@ public class Server {
         return DriverManager.getConnection(url, username, password);
     }
 
-    public static ArrayList<User>  list (PreparedStatement statement,String sqlQuerie) throws SQLException {
-        ArrayList<User> users = new ArrayList<>();
+    public static void  list (PreparedStatement statement,String sqlQuerie) throws SQLException {
+        var users = new ArrayList<>();
 
         ResultSet resultSet = statement.executeQuery(sqlQuerie);
             while (resultSet.next()){
@@ -21,7 +21,7 @@ public class Server {
                 users.add(user);
             }
 
-            return users;
+            users.forEach(System.out::println);
 
         }
 
