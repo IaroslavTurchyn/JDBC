@@ -10,6 +10,8 @@ public class Main {
         PreparedStatement statement = connection.prepareStatement(SQLQuerie.CREATE);
         statement.execute();
         PreparedStatement insert = connection.prepareStatement(SQLQuerie.INSERT);
+        insert.executeUpdate();
+
         Server.list(statement, SQLQuerie.YOUNGER18);
         System.out.println("---------------------");
 
