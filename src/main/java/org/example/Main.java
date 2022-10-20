@@ -10,7 +10,7 @@ public class Main {
         PreparedStatement statement = connection.prepareStatement(SQLQuerie.CREATE);
         statement.execute();
         PreparedStatement insert = connection.prepareStatement(SQLQuerie.INSERT);
- //      insert.executeUpdate();
+      insert.executeUpdate();
 
         ArrayList<User> list = Server.list(statement, SQLQuerie.YOUNGER18);
         list.forEach(System.out::println);
