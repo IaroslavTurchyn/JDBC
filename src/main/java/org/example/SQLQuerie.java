@@ -14,7 +14,7 @@ public class SQLQuerie {
             """;
 
     public static final String NAMES_CONTAINS_A= """
-            SELECT  count(*) FROM user WHERE first_name LIKE '%a%' or '%a' or 'a%';
+            SELECT  count(*) FROM user WHERE first_name LIKE '%a%' ;
             """;
 
     public static final String ALL_USER_ADULT= """
