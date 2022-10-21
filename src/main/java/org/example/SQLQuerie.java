@@ -39,4 +39,8 @@ public class SQLQuerie {
             SELECT count(*) FROM user WHERE age>18;
             """;
 
+    SQLQuerie(){
+
+    }
+
 }

@@ -3,15 +3,19 @@ package org.example;
 import java.sql.*;
 import java.util.ArrayList;
 
+import static org.example.JDBCConstans.*;
+import java.sql.Statement;
+
 public class Server {
-    public static Connection connect (String url,String username,String password) throws SQLException {
-        return DriverManager.getConnection(url, username, password);
-    }
 
-    public static void  list (PreparedStatement statement,String sqlQuerie) throws SQLException {
-        var users = new ArrayList<>();
 
-        ResultSet resultSet = statement.executeQuery(sqlQuerie);
+    public static void  list (String sqlQuerie) throws SQLException {
+
+        try(Connection connection = DriverManager.getConnection(URL,USERNAME,PASSWORD); Statement statement = connection.createStatement();){
+
+            var users = new ArrayList<>();
+
+            ResultSet resultSet = statement.executeQuery(sqlQuerie);
             while (resultSet.next()){
                 User user = new User();
                 user.setId(resultSet.getInt("id"));
@@ -23,15 +27,24 @@ public class Server {
 
             users.forEach(System.out::println);
 
+        } catch (SQLException e){
+            System.out.println("error"+ e.getMessage());
         }
+    }
 
-        public static void count (PreparedStatement preparedStatement,String sqlQuerie) throws SQLException {
-            ResultSet resultSet = preparedStatement.executeQuery(sqlQuerie);
-            while (resultSet.next()){
-                int count =resultSet.getInt("count(*)");
-                System.out.println(count);
+        public static void count (String sqlQuerie) {
+            try(Connection connection = DriverManager.getConnection(URL,USERNAME,PASSWORD); Statement statement = connection.createStatement();) {
+
+                ResultSet resultSet = statement.executeQuery(sqlQuerie);
+                while (resultSet.next()) {
+                    int count = resultSet.getInt("count(*)");
+                    System.out.println(count);
+                }
+            } catch (SQLException e) {
+                System.out.println("error" + e.getMessage());
             }
         }
+
 
 
     }
