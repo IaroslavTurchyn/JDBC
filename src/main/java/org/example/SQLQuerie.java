@@ -18,7 +18,7 @@ public class SQLQuerie {
             """;
 
     public static final String ALL_USER_ADULT= """
-            SELECT count(*) FROM user WHERE age>18;
+            SELECT count(*) FROM user WHERE age>= 18;
             """;
 
     SQLQuerie(){
