@@ -13,14 +13,13 @@ public class Main {
         Server.list(YOUNGER18);
         System.out.println("---------------------");
 
+        Server.list(NAME_ENDS_O);
+        System.out.println("---------------------");
+
         Server.list(AGE_BETWEEN);
-
-
         System.out.println("---------------------");
 
         Server.count(NAMES_CONTAINS_A);
-
-
         System.out.println("---------------------");
 
         Server.count(ALL_USER_ADULT);

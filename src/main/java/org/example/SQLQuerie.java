@@ -1,8 +1,6 @@
 package org.example;
 
 public class SQLQuerie {
-
-
     public static final String YOUNGER18 = """
             SELECT * FROM user WHERE age < 18
             """;
